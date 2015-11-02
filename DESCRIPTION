@@ -1,0 +1,14 @@
+Package: ballr
+Type: Package
+Title: A simple API for accessing basketball-reference.com data in R.
+Version: 0.1
+Date: 2015-10-08
+Authors@R: person("Ryan", "Elmore", email = "Ryan.Elmore@du.edu",
+  role = c("aut", "cre"))
+Description: This package provides some functions for accessing
+  basketball-reference.com data/tables in R.
+License: GPL (>= 3)
+Imports: dplyr,
+         lubridate,
+         rvest
+LazyData: TRUE
