@@ -32,13 +32,3 @@ GetNBAPerGameStatistics <- function(season = 2016) {
   nba_stats <- mutate_each(nba_stats, funs(as.numeric), c(1, 4, 6:30))
   return(nba_stats)
 }
-
-GetNBAPlayerPerGameStats <- function(player_url) {
-  player_url <- paste(default_base,
-                      player_url,
-                      sep = "")
-  pg <- read_html(player_url)
-  player_stats <- tbl_df(html_table(pg, fill = T)[[2]]) %>%
-    filter(Age < max(Age, na.rm = T))
-  return(player_stats)
-}
