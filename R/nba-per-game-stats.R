@@ -3,13 +3,13 @@
 
 GetNBAPerGameStatistics <- function(season = 2016) {
   nba_url <- paste(default_base,
-                   "leagues/NBA_",
+                   "/leagues/NBA_",
                    season,
                    "_per_game.html",
                    sep = "")
   pg <- read_html(nba_url)
 
-  nba_stats <- tbl_df(html_table(pg)[[1]])
+  nba_stats <- tbl_df(html_table(pg, fill = T)[[1]])
   names(nba_stats)[c(11, 14, 17, 18, 21)] <- c("FGP",
                                                "3PP",
                                                "2PP",
@@ -29,9 +29,16 @@ GetNBAPerGameStatistics <- function(season = 2016) {
                                 link = as.character(links)))
   links_df[] <- lapply(links_df, as.character)
   nba_stats <- left_join(nba_stats, links_df, by = "Player")
+  nba_stats <- mutate_each(nba_stats, funs(as.numeric), c(1, 4, 6:30))
   return(nba_stats)
 }
 
-GetNBAPlayerLinks <- function(players) {
-
+GetNBAPlayerPerGameStats <- function(player_url) {
+  player_url <- paste(default_base,
+                      player_url,
+                      sep = "")
+  pg <- read_html(player_url)
+  player_stats <- tbl_df(html_table(pg, fill = T)[[2]]) %>%
+    filter(Age < max(Age, na.rm = T))
+  return(player_stats)
 }
