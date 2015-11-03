@@ -10,8 +10,28 @@ GetNBAPerGameStatistics <- function(season = 2016) {
   pg <- read_html(nba_url)
 
   nba_stats <- tbl_df(html_table(pg)[[1]])
-  names(nba_stats)[c(14, 17)] <- c("3PP", "2PP")
+  names(nba_stats)[c(11, 14, 17, 18, 21)] <- c("FGP",
+                                               "3PP",
+                                               "2PP",
+                                               "eFGP",
+                                               "FTP")
   nba_stats <- filter(nba_stats,
                       Player != "Player")
+  links <- pg %>%
+    html_nodes("tr.full_table") %>%
+    html_nodes("a") %>%
+    html_attr("href")
+  link_names <- pg %>%
+    html_nodes("tr.full_table") %>%
+    html_nodes("a") %>%
+    html_text()
+  links_df <- tbl_df(data.frame(Player = as.character(link_names),
+                                link = as.character(links)))
+  links_df[] <- lapply(links_df, as.character)
+  nba_stats <- left_join(nba_stats, links_df, by = "Player")
   return(nba_stats)
+}
+
+GetNBAPlayerLinks <- function(players) {
+
 }
