@@ -2,7 +2,7 @@
 % Please edit documentation in R/nba-player-per-game-stats.R
 \name{GetNBAPlayerPerGameStats}
 \alias{GetNBAPlayerPerGameStats}
-\title{This function gets a player's career stats from basketball-reference.com}
+\title{NBA Player Career Statistics}
 \usage{
 GetNBAPlayerPerGameStats(player_link)
 }
