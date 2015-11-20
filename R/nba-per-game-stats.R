@@ -1,5 +1,15 @@
-# Get NBA Per Game Statistics
-#
+#' This function returns all player statistics from an NBA season on
+#' basketball-reference.com.  See an example table at:
+#' http://www.basketball-reference.com/leagues/NBA_2015_per_game.html
+#'
+#' @param season A numeric year
+#' @return An object of class tbl_df
+#' @examples
+#' GetNBAPerGameStatistics(season = 2015)
+#' players <- GetNBAPerGameStatistics(season = 2015) %>%
+#'   filter(MP > 20, Pos %in% c("SF")) %>%
+#'   select(Player, link) %>%
+#'   distinct()
 
 GetNBAPerGameStatistics <- function(season = 2016) {
   nba_url <- paste(default_base,
