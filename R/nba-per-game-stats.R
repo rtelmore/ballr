@@ -7,13 +7,13 @@
 #' @param season A numeric year
 #' @return An object of class tbl_df
 #' @examples
-#' GetNBAPerGameStatistics(season = 2015)
-#' players <- GetNBAPerGameStatistics(season = 2015) %>%
+#' NBAPerGameStatistics(season = 2015)
+#' players <- NBAPerGameStatistics(season = 2015) %>%
 #'   filter(MP > 20, Pos %in% c("SF")) %>%
 #'   select(Player, link) %>%
 #'   distinct()
 
-GetNBAPerGameStatistics <- function(season = 2016) {
+NBAPerGameStatistics <- function(season = 2016) {
   nba_url <- paste(getOption("NBA_api_base"),
                    "/leagues/NBA_",
                    season,
