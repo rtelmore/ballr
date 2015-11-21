@@ -12,7 +12,7 @@ GetNBAPlayerPerGameStats <- function(player_link) {
   player_url <- paste(getOption("NBA_api_base"),
                       player_link,
                       sep = "")
-  pg <- rvest::read_html(player_url)
-  player_stats <- dplyr::tbl_df(rvest::html_table(pg, fill = T)[[2]])
+  pg <- read_html(player_url)
+  player_stats <- tbl_df(html_table(pg, fill = T)[[2]])
   return(player_stats)
 }

@@ -19,28 +19,28 @@ GetNBAPerGameStatistics <- function(season = 2016) {
                    season,
                    "_per_game.html",
                    sep = "")
-  pg <- xml2::read_html(nba_url)
+  pg <- read_html(nba_url)
 
-  nba_stats <- dplyr::tbl_df(rvest::html_table(pg, fill = T)[[1]])
+  nba_stats <- tbl_df(rvest::html_table(pg, fill = T)[[1]])
   names(nba_stats)[c(11, 14, 17, 18, 21)] <- c("FGP",
                                                "3PP",
                                                "2PP",
                                                "eFGP",
                                                "FTP")
-  nba_stats <- dplyr::filter(nba_stats,
-                             Player != "Player")
+  nba_stats <- filter(nba_stats,
+                      Player != "Player")
   links <- pg %>%
-    rvest::html_nodes("tr.full_table") %>%
-    rvest::html_nodes("a") %>%
-    rvest::html_attr("href")
+    html_nodes("tr.full_table") %>%
+    html_nodes("a") %>%
+    html_attr("href")
   link_names <- pg %>%
-    rvest::html_nodes("tr.full_table") %>%
-    rvest::html_nodes("a") %>%
-    rvest::html_text()
+    html_nodes("tr.full_table") %>%
+    html_nodes("a") %>%
+    html_text()
   links_df <- tbl_df(data.frame(Player = as.character(link_names),
-                                link = as.character(links)))
+                            link = as.character(links)))
   links_df[] <- lapply(links_df, as.character)
-  nba_stats <- dplyr::left_join(nba_stats, links_df, by = "Player")
-  nba_stats <- dplyr::mutate_each(nba_stats, funs(as.numeric), c(1, 4, 6:30))
+  nba_stats <- left_join(nba_stats, links_df, by = "Player")
+  nba_stats <- mutate_each(nba_stats, funs(as.numeric), c(1, 4, 6:30))
   return(nba_stats)
 }

@@ -8,7 +8,8 @@ Authors@R: person("Ryan", "Elmore", email = "Ryan.Elmore@du.edu",
 Description: This package provides some functions for accessing
   basketball-reference.com data/tables in R.
 License: GPL (>= 3)
-Imports: dplyr,
+Depends: dplyr,
          lubridate,
-         rvest
+         rvest,
+         XML
 LazyData: TRUE
