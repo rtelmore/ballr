@@ -1,7 +1,7 @@
 # ballr
 An R API for basketball-reference.com
 
-To install install:
+To install in R:
 
 ```
 install.packages("devtools")
