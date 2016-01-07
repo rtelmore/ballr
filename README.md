@@ -1,5 +1,6 @@
 # ballr
-An R API for basketball-reference.com
+An R API for basketball-reference.com.  The correct pronounciation for this 
+package is bôlər. 
 
 To install in R:
 
