@@ -2,7 +2,7 @@
 % Please edit documentation in R/nba-per-game-stats.R
 \name{NBAPerGameStatistics}
 \alias{NBAPerGameStatistics}
-\title{NBA Player Statistics For a Given Season}
+\title{NBA Player Statistics For a Given Season Per Game}
 \usage{
 NBAPerGameStatistics(season = 2016)
 }
@@ -13,8 +13,9 @@ NBAPerGameStatistics(season = 2016)
 An object of class tbl_df
 }
 \description{
-This function returns all player statistics from an NBA season on
-basketball-reference.com.  See an example table at:
+This function returns all player statistics on a per game basis
+from an NBA season on basketball-reference.com.  See an example
+table at:
 http://www.basketball-reference.com/leagues/NBA_2015_per_game.html
 }
 \examples{
