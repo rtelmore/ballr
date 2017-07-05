@@ -13,6 +13,6 @@ NBAPlayerPerGameStats <- function(player_link) {
                       player_link,
                       sep = "")
   pg <- read_html(player_url)
-  player_stats <- tbl_df(html_table(pg, fill = T)[[2]])
+  player_stats <- html_table(pg, fill = T)[[1]]
   return(player_stats)
 }
