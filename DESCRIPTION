@@ -13,3 +13,7 @@ Depends: dplyr,
          rvest,
          XML
 LazyData: TRUE
+RoxygenNote: 6.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
