@@ -3,7 +3,7 @@
 #' This function returns all player statistics on a per game basis
 #' from an NBA season on basketball-reference.com.  See an example
 #' table at:
-#' http://www.basketball-reference.com/leagues/NBA_2015_per_game.html
+#' http://www.basketball-reference.com/leagues/NBA_2015_per_minute.html
 #'
 #' @param season A numeric year
 #' @return An object of class tbl_df
@@ -18,7 +18,7 @@ NBAPerGameStatisticsPer36Min <- function(season = 2016) {
   nba_url <- paste(getOption("NBA_api_base"),
                    "/leagues/NBA_",
                    season,
-                   "_per_game.html",
+                   "_per_minute.html",
                    sep = "")
   pg <- read_html(nba_url)
 
