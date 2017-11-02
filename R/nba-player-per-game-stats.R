@@ -7,12 +7,12 @@
 #' @examples
 #' NBAPlayerPerGameStats("/players/d/davisan02.html") # Anthony Davis
 #' NBAPlayerPerGameStats("/players/j/jamesle01.html") # Lebron James
-
+#' @export
 NBAPlayerPerGameStats <- function(player_link) {
   player_url <- paste(getOption("NBA_api_base"),
                       player_link,
                       sep = "")
-  pg <- read_html(player_url)
-  player_stats <- html_table(pg, fill = T)[[1]]
+  pg <- xml2::read_html(player_url)
+  player_stats <- rvest::html_table(pg, fill = T)[[1]]
   return(player_stats)
 }
