@@ -6,7 +6,7 @@
 #' @return An list containing the standings in the Eastern and Western Conferences
 #' @examples
 #' NBAStandingsByDate("2010-01-31") # Jan 31, 2010
-#' NBAStandingsByDate("2015-11-19") # Nov 19, 2015
+#' NBAStandingsByDate("2017-11-09") # Nov 09, 2017
 #' @export
 NBAStandingsByDate <- function(date_string = Sys.Date()){
   date_string <- lubridate::ymd(date_string)

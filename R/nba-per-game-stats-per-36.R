@@ -3,7 +3,7 @@
 #' This function returns all player statistics on a per game basis
 #' from an NBA season on basketball-reference.com.  See an example
 #' table at:
-#' http://www.basketball-reference.com/leagues/NBA_2015_per_minute.html
+#' http://www.basketball-reference.com/leagues/NBA_2018_per_minute.html
 #'
 #' @param season A numeric year
 #' @return An object of class tbl_df
@@ -11,7 +11,7 @@
 #' @examples
 #' library(magrittr)
 #'
-#' players <- NBAPerGameStatisticsPer36Min(season = 2016)
+#' players <- NBAPerGameStatisticsPer36Min(season = 2018)
 #' players
 #'
 #' players %>%
@@ -19,8 +19,8 @@
 #'   dplyr::select(Player, link) %>%
 #'   dplyr::distinct()
 #'
-#' @export 
-NBAPerGameStatisticsPer36Min <- function(season = 2016) {
+#' @export
+NBAPerGameStatisticsPer36Min <- function(season = 2018) {
   nba_url <- paste(getOption("NBA_api_base"),
                    "/leagues/NBA_",
                    season,
@@ -48,7 +48,7 @@ NBAPerGameStatisticsPer36Min <- function(season = 2016) {
                                 link   = as.character(links))
   links_df[] <- lapply(links_df, as.character)
   nba_stats <- dplyr::left_join(nba_stats, links_df, by = "Player")
-  nba_stats <- dplyr::mutate_at(nba_stats, 
+  nba_stats <- dplyr::mutate_at(nba_stats,
                                 dplyr::vars(-.data$Player, -.data$Pos, -.data$Tm, -.data$link),
                                 dplyr::funs(as.numeric))
   return(nba_stats)

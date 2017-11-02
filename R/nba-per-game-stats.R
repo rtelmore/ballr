@@ -12,7 +12,7 @@
 #' @examples
 #' library(magrittr)
 #'
-#' players <- NBAPerGameStatistics(season = 2015)
+#' players <- NBAPerGameStatistics(season = 2018)
 #' players
 #'
 #' players %>%
@@ -21,7 +21,7 @@
 #'   dplyr::distinct()
 #'
 #' @export
-NBAPerGameStatistics <- function(season = 2016) {
+NBAPerGameStatistics <- function(season = 2018) {
   nba_url <- paste(getOption("NBA_api_base"),
                    "/leagues/NBA_",
                    season,
@@ -45,7 +45,7 @@ NBAPerGameStatistics <- function(season = 2016) {
                             link       = as.character(links))
   links_df[] <- lapply(links_df, as.character)
   nba_stats <- dplyr::left_join(nba_stats, links_df, by = "Player")
-  nba_stats <- dplyr::mutate_at(nba_stats, 
+  nba_stats <- dplyr::mutate_at(nba_stats,
                                 dplyr::vars(-.data$Player, -.data$Pos, -.data$Tm, -.data$link),
                                 dplyr::funs(as.numeric))
 
