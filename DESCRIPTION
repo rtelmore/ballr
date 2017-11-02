@@ -7,13 +7,16 @@ Authors@R: person("Ryan", "Elmore", email = "Ryan.Elmore@du.edu",
   role = c("aut", "cre"))
 Description: This package provides some functions for accessing
   basketball-reference.com data/tables in R.
-License: GPL (>= 3)
-Depends: dplyr (>= 0.7.0),
-         lubridate,
-         rvest,
-         XML
+License: file LICENSE
+Imports:
+    dplyr (>= 0.7.0),
+    lubridate,
+    rlang,
+    rvest,
+    XML
+Suggests:
+    knitr,
+    rmarkdown
 LazyData: TRUE
 RoxygenNote: 6.0.1
-Suggests: knitr,
-    rmarkdown
 VignetteBuilder: knitr
