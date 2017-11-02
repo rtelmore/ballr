@@ -23,7 +23,7 @@ NBAPerGameStatistics <- function(season = 2016) {
                    season,
                    "_per_game.html",
                    sep = "")
-  pg <- read_xml::read_html(nba_url)
+  pg <- xml2::read_html(nba_url)
 
   nba_stats <- dplyr::tbl_df(rvest::html_table(pg, fill = T)[[1]])
   names(nba_stats)[c(11, 14, 17, 18, 21)] <- c("FGP",
@@ -33,13 +33,13 @@ NBAPerGameStatistics <- function(season = 2016) {
                                                "FTP")
   nba_stats <- dplyr::filter(nba_stats, .data$Player != "Player")
   links <- pg %>%
-    html_nodes("tr.full_table") %>%
-    html_nodes("a") %>%
-    html_attr("href")
+    rvest::html_nodes("tr.full_table") %>%
+    rvest::html_nodes("a") %>%
+    rvest::html_attr("href")
   link_names <- pg %>%
-    html_nodes("tr.full_table") %>%
-    html_nodes("a") %>%
-    html_text()
+    rvest::html_nodes("tr.full_table") %>%
+    rvest::html_nodes("a") %>%
+    rvest::html_text()
   links_df <- dplyr::data_frame(Player = as.character(link_names),
                             link       = as.character(links))
   links_df[] <- lapply(links_df, as.character)

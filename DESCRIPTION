@@ -11,9 +11,11 @@ License: file LICENSE
 Imports:
     dplyr (>= 0.7.0),
     lubridate,
+    magrittr,
     rlang,
     rvest,
-    XML
+    XML,
+    xml2
 Suggests:
     knitr,
     rmarkdown

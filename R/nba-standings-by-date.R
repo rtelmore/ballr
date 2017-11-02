@@ -9,7 +9,7 @@
 #' NBAStandingsByDate("2015-11-19") # Nov 19, 2015
 #' @export
 NBAStandingsByDate <- function(date_string = Sys.Date()){
-  date_string <- ymd(date_string)
+  date_string <- lubridate::ymd(date_string)
   y <- lubridate::year(date_string)
   m <- lubridate::month(date_string)
   d <- lubridate::day(date_string)
@@ -19,8 +19,8 @@ NBAStandingsByDate <- function(date_string = Sys.Date()){
                "&day=", d,
                "&year=", y,
                "&lg_id=NBA", sep = "")
-  r <- read_xml::read_html(url)
-  east <- html_table(r, fill = T)[[2]]
-  west <- html_table(r, fill = T)[[3]]
+  r <- xml2::read_html(url)
+  east <- rvest::html_table(r, fill = T)[[2]]
+  west <- rvest::html_table(r, fill = T)[[3]]
   return(list(East = east, West = west))
 }
