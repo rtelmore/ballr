@@ -9,11 +9,15 @@
 #' @return An object of class tbl_df
 #'
 #' @examples
-#' NBAPerGameStatisticsPer36Min(season = 2015)
-#' players <- NBAPerGameStatisticsPer36Min(season = 2015) %>%
-#'   filter(MP > 20, Pos %in% c("SF")) %>%
-#'   select(Player, link) %>%
-#'   distinct()
+#' library(magrittr)
+#'
+#' players <- NBAPerGameStatisticsPer36Min(season = 2016)
+#' players
+#'
+#' players %>%
+#'   dplyr::filter(MP > 20, Pos %in% c("SF")) %>%
+#'   dplyr::select(Player, link) %>%
+#'   dplyr::distinct()
 #'
 #' @export 
 NBAPerGameStatisticsPer36Min <- function(season = 2016) {
@@ -24,12 +28,10 @@ NBAPerGameStatisticsPer36Min <- function(season = 2016) {
                    sep = "")
   pg <- xml2::read_html(nba_url)
 
-  nba_stats <- dplyr::tbl_df(rvest::html_table(pg, fill = T)[[2]])
-  names(nba_stats)[c(11, 14, 17, 18, 21)] <- c("FGP",
-                                               "3PP",
-                                               "2PP",
-                                               "eFGP",
-                                               "FTP")
+  nba_stats <- dplyr::tbl_df(rvest::html_table(pg, fill = T)[[1]])
+
+  names(nba_stats) %<>% gsub("%", "P", .) %>% gsub("eFG.*$", "eFG", .)
+
   nba_stats <- dplyr::filter(nba_stats, .data$Player != "Player")
 
   links <- pg %>%
@@ -46,6 +48,8 @@ NBAPerGameStatisticsPer36Min <- function(season = 2016) {
                                 link   = as.character(links))
   links_df[] <- lapply(links_df, as.character)
   nba_stats <- dplyr::left_join(nba_stats, links_df, by = "Player")
-  nba_stats <- dplyr::mutate_each(nba_stats, dplyr::funs(as.numeric), c(1, 4, 6:30))
+  nba_stats <- dplyr::mutate_at(nba_stats, 
+                                dplyr::vars(-.data$Player, -.data$Pos, -.data$Tm, -.data$link),
+                                dplyr::funs(as.numeric))
   return(nba_stats)
 }

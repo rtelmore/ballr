@@ -30,12 +30,7 @@ NBAPerGameStatistics <- function(season = 2016) {
   pg <- xml2::read_html(nba_url)
 
   nba_stats <- dplyr::tbl_df(rvest::html_table(pg, fill = T)[[1]])
-  nba_stats <- dplyr::rename(nba_stats,
-                             `FGP` = .data$`FG%`, 
-                             `3PP` = .data$`3P%`,
-                             `2PP` = .data$`2P%`,
-                             `eFG` = .data$`eFG%`,
-                             `FTP` = .data$`FT%`)
+  names(nba_stats) %<>% gsub("%", "P", .) %>% gsub("eFG.*$", "eFG", .)
 
   nba_stats <- dplyr::filter(nba_stats, .data$Player != "Player")
   links <- pg %>%
@@ -51,7 +46,7 @@ NBAPerGameStatistics <- function(season = 2016) {
   links_df[] <- lapply(links_df, as.character)
   nba_stats <- dplyr::left_join(nba_stats, links_df, by = "Player")
   nba_stats <- dplyr::mutate_at(nba_stats, 
-                                dplyr::vars(.data$Rk, .data$Age, .data$G:.data$`PS/G`),
+                                dplyr::vars(-.data$Player, -.data$Pos, -.data$Tm, -.data$link),
                                 dplyr::funs(as.numeric))
 
   return(nba_stats)
