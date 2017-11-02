@@ -19,10 +19,14 @@ table at:
 http://www.basketball-reference.com/leagues/NBA_2015_per_game.html
 }
 \examples{
-NBAPerGameStatistics(season = 2015)
-players <- NBAPerGameStatistics(season = 2015) \%>\%
-  filter(MP > 20, Pos \%in\% c("SF")) \%>\%
-  select(Player, link) \%>\%
-  distinct()
+library(magrittr)
+
+players <- NBAPerGameStatistics(season = 2015)
+players
+
+players \%>\%
+  dplyr::filter(MP > 20, Pos \%in\% c("SF")) \%>\%
+  dplyr::select(Player, link) \%>\%
+  dplyr::distinct()
 
 }

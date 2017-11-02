@@ -10,11 +10,15 @@
 #' @return An object of class \code{\link[dplyr]{tbl_df}}
 #'
 #' @examples
-#' NBAPerGameStatistics(season = 2015)
-#' players <- NBAPerGameStatistics(season = 2015) %>%
-#'   filter(MP > 20, Pos %in% c("SF")) %>%
-#'   select(Player, link) %>%
-#'   distinct()
+#' library(magrittr)
+#'
+#' players <- NBAPerGameStatistics(season = 2015)
+#' players
+#'
+#' players %>%
+#'   dplyr::filter(MP > 20, Pos %in% c("SF")) %>%
+#'   dplyr::select(Player, link) %>%
+#'   dplyr::distinct()
 #'
 #' @export
 NBAPerGameStatistics <- function(season = 2016) {
@@ -26,11 +30,13 @@ NBAPerGameStatistics <- function(season = 2016) {
   pg <- xml2::read_html(nba_url)
 
   nba_stats <- dplyr::tbl_df(rvest::html_table(pg, fill = T)[[1]])
-  names(nba_stats)[c(11, 14, 17, 18, 21)] <- c("FGP",
-                                               "3PP",
-                                               "2PP",
-                                               "eFGP",
-                                               "FTP")
+  nba_stats <- dplyr::rename(nba_stats,
+                             `FGP` = .data$`FG%`, 
+                             `3PP` = .data$`3P%`,
+                             `2PP` = .data$`2P%`,
+                             `eFG` = .data$`eFG%`,
+                             `FTP` = .data$`FT%`)
+
   nba_stats <- dplyr::filter(nba_stats, .data$Player != "Player")
   links <- pg %>%
     rvest::html_nodes("tr.full_table") %>%
@@ -44,7 +50,9 @@ NBAPerGameStatistics <- function(season = 2016) {
                             link       = as.character(links))
   links_df[] <- lapply(links_df, as.character)
   nba_stats <- dplyr::left_join(nba_stats, links_df, by = "Player")
-  nba_stats <- dplyr::mutate_each(nba_stats, dplyr::funs(as.numeric), c(1, 4, 6:30))
+  nba_stats <- dplyr::mutate_at(nba_stats, 
+                                dplyr::vars(.data$Rk, .data$Age, .data$G:.data$`PS/G`),
+                                dplyr::funs(as.numeric))
 
   return(nba_stats)
 }
