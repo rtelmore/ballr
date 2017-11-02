@@ -1,2 +1,6 @@
 ^.*\.Rout$
 ^.*makefile$
+^packrat/
+^\.Rprofile$
+^.*\.Rproj$
+^\.Rproj\.user$
