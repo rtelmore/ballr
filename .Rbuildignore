@@ -1,2 +1,2 @@
-^*\.Rout$
+^.*\.Rout$
 ^.*makefile$
