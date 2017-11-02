@@ -1,4 +1,5 @@
-# ballr
+# ballr <img src="man/figures/court.png" width = "175" align="right" />
+
 An R API for basketball-reference.com.  The correct pronounciation for this 
 package is bôlər. 
 
