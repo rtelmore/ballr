@@ -28,7 +28,10 @@ NBAPerGameAdvStatistics <- function(season = 2018) {
                    sep = "")
   pg <- xml2::read_html(nba_url)
 
-  nba_stats <- dplyr::tbl_df(rvest::html_table(pg, fill = T)[[1]])
+  nba_stats <- rvest::html_table(pg, fill = T)[[1]]
+  names(nba_stats)[c(20, 25)] <- c("t1", "t2")
+  nba_stats <- dplyr::select(nba_stats, -t1, -t2) %>%
+    dplyr::tbl_df()
 
   names(nba_stats) %<>% gsub("%", "P", .) %>% gsub("eFG.*$", "eFG", .)
 
