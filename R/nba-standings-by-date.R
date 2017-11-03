@@ -21,8 +21,8 @@ NBAStandingsByDate <- function(date_string = Sys.Date()){
                "&lg_id=NBA", sep = "")
   r <- xml2::read_html(url)
   east <- rvest::html_table(r, fill = T)[[1]] %>%
-    clean_names()
+    janitor::clean_names()
   west <- rvest::html_table(r, fill = T)[[2]] %>%
-    clean_names()
+    janitor::clean_names()
   return(list(East = east, West = west))
 }

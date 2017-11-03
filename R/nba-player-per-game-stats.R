@@ -14,6 +14,6 @@ NBAPlayerPerGameStats <- function(player_link) {
                       sep = "")
   pg <- xml2::read_html(player_url)
   player_stats <- rvest::html_table(pg, fill = T)[[1]] %>%
-    clean_names()
+    janitor::clean_names()
   return(player_stats)
 }
