@@ -28,7 +28,9 @@ NBAPerGameStatisticsPer100Poss <- function(season = 2018) {
                    sep = "")
   pg <- xml2::read_html(nba_url)
 
-  nba_stats <- dplyr::tbl_df(rvest::html_table(pg, fill = T)[[1]])
+  nba_stats <- rvest::html_table(pg, fill = T)[[1]] %>%
+    dplyr::select(-30) %>%
+    dplyr::tbl_df()
 
   names(nba_stats) %<>% gsub("%", "P", .) %>% gsub("eFG.*$", "eFG", .)
 
