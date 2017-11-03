@@ -30,7 +30,7 @@ NBAPerGameAdvStatistics <- function(season = 2018) {
 
   nba_stats <- rvest::html_table(pg, fill = T)[[1]] %>%
     clean_names() %>%
-    dplyr::filter(nba_stats, .data$player != "Player")
+    dplyr::filter(.data$player != "Player")
 
   links <- pg %>%
     rvest::html_nodes("tr.full_table") %>%
