@@ -18,6 +18,7 @@ Imports:
     xml2,
     janitor
 Suggests:
+    covr,
     knitr,
     rmarkdown
 LazyData: TRUE
