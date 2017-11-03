@@ -4,7 +4,7 @@
 \alias{NBAPerGameStatistics}
 \title{NBA Player Statistics For a Given Season Per Game}
 \usage{
-NBAPerGameStatistics(season = 2016)
+NBAPerGameStatistics(season = 2018)
 }
 \arguments{
 \item{season}{A numeric year}
@@ -21,7 +21,7 @@ http://www.basketball-reference.com/leagues/NBA_2015_per_game.html
 \examples{
 library(magrittr)
 
-players <- NBAPerGameStatistics(season = 2015)
+players <- NBAPerGameStatistics(season = 2018)
 players
 
 players \%>\%

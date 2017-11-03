@@ -4,7 +4,7 @@
 \alias{NBAPerGameStatisticsPer36Min}
 \title{NBA Player Statistics For a Given Season per 36 Minutes}
 \usage{
-NBAPerGameStatisticsPer36Min(season = 2016)
+NBAPerGameStatisticsPer36Min(season = 2018)
 }
 \arguments{
 \item{season}{A numeric year}
@@ -13,15 +13,15 @@ NBAPerGameStatisticsPer36Min(season = 2016)
 An object of class tbl_df
 }
 \description{
-This function returns all player statistics on a per game basis
+This function returns all player statistics on a per game basis (per 36 min)
 from an NBA season on basketball-reference.com.  See an example
 table at:
-http://www.basketball-reference.com/leagues/NBA_2015_per_minute.html
+http://www.basketball-reference.com/leagues/NBA_2018_per_minute.html
 }
 \examples{
 library(magrittr)
 
-players <- NBAPerGameStatisticsPer36Min(season = 2016)
+players <- NBAPerGameStatisticsPer36Min(season = 2018)
 players
 
 players \%>\%

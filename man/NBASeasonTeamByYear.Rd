@@ -18,6 +18,6 @@ A team's game statistics for a particular season
 This function returns a team's yearly statistics from basketball-reference.com
 }
 \examples{
-NBASeasonTeamByYear("ATL", 2015)
-NBASeasonTeamByYear("NOP", 2015)
+NBASeasonTeamByYear("ATL", 2018)
+NBASeasonTeamByYear("NOP", 2018)
 }
