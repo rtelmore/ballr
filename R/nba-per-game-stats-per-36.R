@@ -29,7 +29,7 @@ NBAPerGameStatisticsPer36Min <- function(season = 2018) {
   pg <- xml2::read_html(nba_url)
 
   nba_stats <- dplyr::tbl_df(rvest::html_table(pg, fill = T)[[1]]) %>%
-    clean_names() %>%
+    janitor::clean_names() %>%
     dplyr::filter(.data$player != "Player")
 
   links <- pg %>%
