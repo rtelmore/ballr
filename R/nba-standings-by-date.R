@@ -20,7 +20,9 @@ NBAStandingsByDate <- function(date_string = Sys.Date()){
                "&year=", y,
                "&lg_id=NBA", sep = "")
   r <- xml2::read_html(url)
-  east <- rvest::html_table(r, fill = T)[[1]]
-  west <- rvest::html_table(r, fill = T)[[2]]
+  east <- rvest::html_table(r, fill = T)[[1]] %>%
+    clean_names()
+  west <- rvest::html_table(r, fill = T)[[2]] %>%
+    clean_names()
   return(list(East = east, West = west))
 }
