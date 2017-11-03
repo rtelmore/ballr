@@ -24,7 +24,7 @@ NBAPerGameAdvStatistics <- function(season = 2018) {
   nba_url <- paste(getOption("NBA_api_base"),
                    "/leagues/NBA_",
                    season,
-                   "_per_minute.html",
+                   "_advanced.html",
                    sep = "")
   pg <- xml2::read_html(nba_url)
 
