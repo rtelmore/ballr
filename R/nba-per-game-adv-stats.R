@@ -28,14 +28,9 @@ NBAPerGameAdvStatistics <- function(season = 2018) {
                    sep = "")
   pg <- xml2::read_html(nba_url)
 
-  nba_stats <- rvest::html_table(pg, fill = T)[[1]]
-  names(nba_stats)[c(20, 25)] <- c("t1", "t2")
-  nba_stats <- dplyr::select(nba_stats, -t1, -t2) %>%
-    dplyr::tbl_df()
-
-  names(nba_stats) %<>% gsub("%", "P", .) %>% gsub("eFG.*$", "eFG", .)
-
-  nba_stats <- dplyr::filter(nba_stats, .data$Player != "Player")
+  nba_stats <- rvest::html_table(pg, fill = T)[[1]] %>%
+    clean_names() %>%
+    dplyr::filter(nba_stats, .data$player != "Player")
 
   links <- pg %>%
     rvest::html_nodes("tr.full_table") %>%
@@ -47,12 +42,12 @@ NBAPerGameAdvStatistics <- function(season = 2018) {
     rvest::html_nodes("a") %>%
     rvest::html_text()
 
-  links_df <- dplyr::data_frame(Player = as.character(link_names),
+  links_df <- dplyr::data_frame(player = as.character(link_names),
                                 link   = as.character(links))
   links_df[] <- lapply(links_df, as.character)
-  nba_stats <- dplyr::left_join(nba_stats, links_df, by = "Player")
+  nba_stats <- dplyr::left_join(nba_stats, links_df, by = "player")
   nba_stats <- dplyr::mutate_at(nba_stats,
-                                dplyr::vars(-.data$Player, -.data$Pos, -.data$Tm, -.data$link),
+                                dplyr::vars(-.data$player, -.data$pos, -.data$tm, -.data$link),
                                 dplyr::funs(as.numeric))
   return(nba_stats)
 }

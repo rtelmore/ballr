@@ -15,7 +15,8 @@ Imports:
     rlang,
     rvest,
     XML,
-    xml2
+    xml2,
+    janitor
 Suggests:
     knitr,
     rmarkdown
