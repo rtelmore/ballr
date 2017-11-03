@@ -1,6 +1,6 @@
 #' NBA Player Statistics For a Given Season per 36 Minutes
 #'
-#' This function returns all player statistics on a per game basis
+#' This function returns all player statistics on a per game basis (per 36 min)
 #' from an NBA season on basketball-reference.com.  See an example
 #' table at:
 #' http://www.basketball-reference.com/leagues/NBA_2018_per_minute.html
