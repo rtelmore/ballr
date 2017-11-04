@@ -15,8 +15,8 @@
 #' players
 #'
 #' players %>%
-#'   dplyr::filter(Pos %in% c("SF")) %>%
-#'   dplyr::select(Player, link) %>%
+#'   dplyr::filter(pos %in% c("SF")) %>%
+#'   dplyr::select(player, link) %>%
 #'   dplyr::distinct()
 #'
 #' @export
