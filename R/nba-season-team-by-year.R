@@ -12,15 +12,21 @@
 NBASeasonTeamByYear <- function(team, season){
   url <- paste(getOption("NBA_api_base"), "/teams/", team, "/", season,
                "_games.html", sep="")
-  stats <- XML::readHTMLTable(url)[['teams_games']][c(1, 2, 6:8, 10:14)]
-  stats <- stats[-c(21, 42, 63, 84), ]
-  stats[, c(1, 6:9)] <- apply(stats[, c(1, 6:9)], 2, as.numeric)
-  colnames(stats)[3] <- "Away_Indicator"
-  stats <- dplyr::tbl_df(stats)
-  stats <- dplyr::mutate(stats,
-                         Diff             = .data$Tm - .data$Opp,
-                         AvgDiff          = cumsum(.data$Diff) / .data$G,
-                         Away             = cumsum(.data$Away_Indicator == '@'),
-                         DaysBetweenGames = c(NA, as.vector(diff(lubridate::mdy(.data$Date)))))
-  return(stats)
+  pg <- xml2::read_html(url)
+  nba_stats <- rvest::html_table(pg, fill = T)[[1]] %>%
+    janitor::clean_names()
+  nba_stats <- nba_stats[-c(21, 42, 63, 84), ] %>%
+    dplyr::mutate(g = as.numeric(g),
+                  tm = as.numeric(tm),
+                  opp = as.numeric(opp),
+                  w = as.numeric(w),
+                  l = as.numeric(l))
+
+  colnames(nba_stats)[6] <- "away_indicator"
+  nba_stats <- dplyr::tbl_df(nba_stats) %>%
+    dplyr::mutate(diff             = .data$tm - .data$opp,
+                  avg_diff          = cumsum(.data$diff) / .data$g,
+                  away             = cumsum(.data$away_indicator == '@'),
+                  daysbetweengames = c(NA, as.vector(diff(lubridate::mdy(.data$date)))))
+  return(nba_stats)
 }
