@@ -16,7 +16,9 @@ Imports:
     rvest,
     XML,
     xml2,
-    janitor
+    janitor,
+    ggplot2,
+    scales
 Suggests:
     covr,
     knitr,
