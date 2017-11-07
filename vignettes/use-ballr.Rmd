@@ -16,15 +16,14 @@ R resource for your basketball-reference.com needs.
 
 ### Install the package
 ```{r, message = F, warning = F}
-## install.packages("devtools")
 library(devtools)
-install_github("rtelmore/ballr")
+devtools::install_github("rtelmore/ballr")
+library(ballr)
 ```
 
-### Load some helpers
+<!-- ### Load some helpers -->
 
 ```{r, message = F, warning = F}
-library(ballr)
 library(magrittr)
 library(ggplot2)
 library(janitor)
