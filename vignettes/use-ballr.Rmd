@@ -4,9 +4,9 @@ author: "Ryan Elmore"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{ballr}
+  %\VignetteIndexEntry{Using ballr}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+  \usepackage[utf8]{inputenc}
 ---
 
 # Introduction 
