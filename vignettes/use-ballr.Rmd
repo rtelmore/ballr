@@ -1,10 +1,10 @@
 ---
-title: "ballr"
+title: "Introduction to ballr"
 author: "Ryan Elmore"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Using ballr}
+  %\VignetteIndexEntry{ballr}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
