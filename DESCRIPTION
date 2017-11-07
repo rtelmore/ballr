@@ -1,8 +1,8 @@
 Package: ballr
 Type: Package
 Title: A simple API for accessing basketball-reference.com data in R
-Version: 0.1
-Date: 2015-10-08
+Version: 0.1.0
+Date: 2017-11-07
 Authors@R: person("Ryan", "Elmore", email = "Ryan.Elmore@du.edu",
   role = c("aut", "cre"))
 Description: This package provides some functions for accessing
