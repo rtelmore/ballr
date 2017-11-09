@@ -101,34 +101,34 @@ for(i in 2:dim(players)[1]){
 Plot everything
 ```{r}
 #player_stats <- clean_names(player_stats)
-p <- ggplot(data = player_stats,
+p <- ggplot2::ggplot(data = player_stats,
             aes(x = age, y = efgpercent, group = player))
-p + geom_line(alpha = .25) +
-  geom_point(alpha = .25) +
-  scale_y_continuous("effective field goal %age", limit = c(0, 1),
+p + ggplot2::geom_line(alpha = .25) +
+  ggplot2::geom_point(alpha = .25) +
+  ggplot2::scale_y_continuous("effective field goal %age", limit = c(0, 1),
                      labels = percent) +
-  geom_line(data = dplyr::filter(player_stats, player == "Anthony Davis"),
+  ggplot2::geom_line(data = dplyr::filter(player_stats, player == "Anthony Davis"),
             aes(x = age, y = efgpercent), size = 1, col = "#1f78b4") +
-  geom_point(data = dplyr::filter(player_stats, player == "Anthony Davis"),
+  ggplot2::geom_point(data = dplyr::filter(player_stats, player == "Anthony Davis"),
             aes(x = age, y = efgpercent), size = 1, col = "#1f78b4") +
-  geom_line(data = dplyr::filter(player_stats, player == "DeMarcus Cousins"),
+  ggplot2::geom_line(data = dplyr::filter(player_stats, player == "DeMarcus Cousins"),
             aes(x = age, y = efgpercent), size = 1, col = "#33a02c") +
-  geom_point(data = dplyr::filter(player_stats, player == "DeMarcus Cousins"),
+  ggplot2::geom_point(data = dplyr::filter(player_stats, player == "DeMarcus Cousins"),
              aes(x = age, y = efgpercent), size = 1, col = "#33a02c") +
-  theme_bw()
+  ggplot2::theme_bw()
 
 ```
 
 ### Advanced Statistics
 ```{r}
 per_100 <- NBAPerGameStatisticsPer100Poss(season = 2018)
-head(per_100)
+utils::head(per_100)
 ```
 
 ### Advanced Statistics
 ```{r}
 adv_stats <- NBAPerGameAdvStatistics(season = 2018)
-head(adv_stats)
+utils::head(adv_stats)
 ```
 
 ### Example 
@@ -137,9 +137,9 @@ Look at selector gadget for a team's website, e.g. [Denver Nuggets](http://www.b
 library(rvest)
 
 url <- "http://www.basketball-reference.com/teams/DEN/2017.html"
-links <- read_html(url) %>%
-    html_nodes(".center+ .left a") %>%
-    html_attr('href')
+links <- xml2::read_html(url) %>%
+    rvest::html_nodes(".center+ .left a") %>%
+    rvest::html_attr('href')
 ```
 
 ```{r}
