@@ -16,11 +16,11 @@ NBASeasonTeamByYear <- function(team, season){
   nba_stats <- rvest::html_table(pg, fill = T)[[1]] %>%
     janitor::clean_names()
   nba_stats <- nba_stats[-c(21, 42, 63, 84), ] %>%
-    dplyr::mutate(g = as.numeric(g),
-                  tm = as.numeric(tm),
-                  opp = as.numeric(opp),
-                  w = as.numeric(w),
-                  l = as.numeric(l))
+    dplyr::mutate(g = as.numeric(.data$g),
+                  tm = as.numeric(.data$tm),
+                  opp = as.numeric(.data$opp),
+                  w = as.numeric(.data$w),
+                  l = as.numeric(.data$l))
 
   colnames(nba_stats)[6] <- "away_indicator"
   nba_stats <- dplyr::tbl_df(nba_stats) %>%
