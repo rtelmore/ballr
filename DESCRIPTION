@@ -3,7 +3,7 @@ Type: Package
 Title: A simple API for accessing basketball-reference.com data in R
 Version: 0.1.0
 Date: 2017-11-07
-Authors@R: person("Ryan", "Elmore", email = "Ryan.Elmore@du.edu",
+Authors@R: person("Ryan", "Elmore", email = "rtelmore@gmail.com",
   role = c("aut", "cre"))
 Description: This package provides some functions for accessing
   basketball-reference.com data/tables in R.
