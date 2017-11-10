@@ -18,7 +18,8 @@ Imports:
     xml2,
     janitor,
     ggplot2,
-    scales
+    scales,
+    devtools
 Suggests:
     covr,
     knitr,
