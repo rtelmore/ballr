@@ -9,7 +9,7 @@ package is **baw**-ler.
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ballr)](https://cran.r-project.org/package=ballr)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/ballr)](http://www.r-pkg.org/pkg/ballr)
 
-## To install in R:
+## To install:
 
 ```
 install.packages("devtools")
