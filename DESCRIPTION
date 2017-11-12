@@ -7,7 +7,7 @@ Authors@R: person("Ryan", "Elmore", email = "rtelmore@gmail.com",
   role = c("aut", "cre"))
 Description: Provides simple functions for accessing data/tables on
   <http://www.basketball.reference.com>.
-License: file LICENSE
+License: GPL (>= 2)
 Imports:
     dplyr (>= 0.7.0),
     lubridate,
