@@ -1,12 +1,12 @@
 Package: ballr
 Type: Package
-Title: A simple API for accessing basketball-reference.com data in R
+Title: Access to Current and Historical Basketball Data
 Version: 0.1.0
 Date: 2017-11-07
 Authors@R: person("Ryan", "Elmore", email = "rtelmore@gmail.com",
   role = c("aut", "cre"))
-Description: This package provides some functions for accessing
-  basketball-reference.com data/tables in R.
+Description: Provides simple functions for accessing data/tables on
+  <http://www.basketball.reference.com>.
 License: file LICENSE
 Imports:
     dplyr (>= 0.7.0),
