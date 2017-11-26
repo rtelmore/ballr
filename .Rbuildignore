@@ -6,7 +6,7 @@
 ^\.Rproj\.user$
 ^codecov\.yml$
 ^\.travis\.yml$
-cran-comments.md
-fig/
-tmp/
-.document.R
+^cran-comments.md$
+^fig/$
+^tmp/*$
+^.document.R$
