@@ -1,6 +1,8 @@
 ## Resubmission to address archiving of package (25 Nov 2017)
 
-* 
+* updated depends/suggests in description
+* removed the devtools::install_github from the vignette
+* file cleanup
 
 ## Resubmission 
 This is a resubmission. In this version I have:
