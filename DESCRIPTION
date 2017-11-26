@@ -3,8 +3,9 @@ Type: Package
 Title: Access to Current and Historical Basketball Data
 Version: 0.1.1
 Date: 2017-11-25
-Authors@R: person("Ryan", "Elmore", email = "rtelmore@gmail.com",
-  role = c("aut", "cre"))
+Authors@R: c(
+    person("Ryan", "Elmore", email = "rtelmore@gmail.com", role = c("cre", "aut")),
+    person("Peter", "DeWitt", email = "dewittpe@gmail.com", role = "ctb"))
 Description: Provides simple functions for accessing data/tables on
   <http://www.basketball-reference.com>.
 License: GPL (>= 2)
