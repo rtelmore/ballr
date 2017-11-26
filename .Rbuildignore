@@ -7,6 +7,6 @@
 ^codecov\.yml$
 ^\.travis\.yml$
 ^cran-comments.md$
-^fig/$
+^fig/*$
 ^tmp/*$
 ^.document.R$
