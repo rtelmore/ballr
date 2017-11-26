@@ -1,4 +1,8 @@
-## Resubmission
+## Resubmission to address archiving of package (25 Nov 2017)
+
+* 
+
+## Resubmission 
 This is a resubmission. In this version I have:
 
 * Removed the redundant 'in R' in title and description.
