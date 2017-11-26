@@ -1,7 +1,7 @@
 Package: ballr
 Type: Package
 Title: Access to Current and Historical Basketball Data
-Version: 0.1.0
+Version: 0.1.1
 Date: 2017-11-07
 Authors@R: person("Ryan", "Elmore", email = "rtelmore@gmail.com",
   role = c("aut", "cre"))
@@ -10,20 +10,20 @@ Description: Provides simple functions for accessing data/tables on
 License: GPL (>= 2)
 Imports:
     dplyr (>= 0.7.0),
+    janitor,
     lubridate,
     magrittr,
     rlang,
     rvest,
-    XML,
-    xml2,
-    janitor,
-    ggplot2,
-    scales,
-    devtools
+    xml2
 Suggests:
     covr,
+    devtools,
     knitr,
-    rmarkdown
+    ggplot2,
+    rmarkdown,
+    scales,
+    XML
 LazyData: TRUE
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr

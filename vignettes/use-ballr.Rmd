@@ -14,10 +14,7 @@ vignette: >
 Welcome to the ballr [**baw**-ler], as in baller^[https://www.urbandictionary.com/define.php?term=baller]. This is *the*
 R resource for your basketball-reference.com needs. 
 
-### Install the package
-```{r, message = F, warning = F}
-library(devtools)
-devtools::install_github("rtelmore/ballr")
+```{r setup, message = FALSE, warning = FALSE}
 library(ballr)
 ```
 
