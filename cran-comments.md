@@ -4,6 +4,13 @@
 * removed the devtools::install_github from the vignette
 * file cleanup
 
+## Test environments
+* local OS X install, R 3.4.2
+* ubuntu (on travis-ci), R 3.4.2
+
+## R CMD check results
+There were no ERRORs, WARNINGs, or NOTEs.
+
 ## Resubmission 
 This is a resubmission. In this version I have:
 
@@ -14,9 +21,3 @@ This is a resubmission. In this version I have:
 * Formatted the url in the Description.
 * Changed the license to gpl >= 2
 
-## Test environments
-* local OS X install, R 3.4.2
-* ubuntu (on travis-ci), R 3.4.2
-
-## R CMD check results
-There were no ERRORs, WARNINGs, or NOTEs.
