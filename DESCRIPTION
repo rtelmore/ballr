@@ -11,7 +11,7 @@ Description: Provides simple functions for accessing data/tables on
 License: GPL (>= 2)
 Imports:
     dplyr (>= 0.7.0),
-    janitor,
+    janitor (>= 1.0.0),
     lubridate,
     magrittr,
     rlang,
