@@ -20,9 +20,18 @@ NBAStandingsByDate <- function(date_string = Sys.Date()){
                "&year=", y,
                "&lg_id=NBA", sep = "")
   r <- xml2::read_html(url)
-  east <- rvest::html_table(r, fill = T)[[1]] %>%
-    janitor::clean_names()
-  west <- rvest::html_table(r, fill = T)[[2]] %>%
-    janitor::clean_names()
+  east <- rvest::html_table(r, fill = T)[[1]]
+  west <- rvest::html_table(r, fill = T)[[2]]
+  if (utils::packageVersion("janitor") > "0.3.1") {
+    east <- janitor::clean_names(east, case = "old_janitor")
+    west <- janitor::clean_names(west, case = "old_janitor")
+  } else {
+    east <- east %>%
+      janitor::clean_names() %>%
+      janitor::remove_empty_cols()
+    west <- west %>%
+      janitor::clean_names() %>%
+      janitor::remove_empty_cols()
+  }
   return(list(East = east, West = west))
 }
