@@ -1,3 +1,14 @@
+## Resubmission to address  (19 Mar 2018)
+
+* addressed the janitor 1.0.0 compliance issues
+
+## Test environments
+* local OS X install, R 3.4.3
+* ubuntu (on travis-ci), R 3.4.3
+
+## R CMD check results
+There were no ERRORs, WARNINGs, or NOTEs.
+
 ## Resubmission to address archiving of package (25 Nov 2017)
 
 * updated depends/suggests in description
