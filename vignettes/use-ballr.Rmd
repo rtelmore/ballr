@@ -97,11 +97,6 @@ for(i in 2:dim(players)[1]){
 
 Plot everything
 ```{r}
-#player_stats <- clean_names(player_stats)
-# if (packageVersion("janitor") <= "0.3.1") {
-#   player_stats <- dplyr::mutate(player_stats, e_fg_percent = efgpercent)
-# }
-# 
 p <- ggplot2::ggplot(data = player_stats,
             aes(x = age, y = efgpercent, group = player))
 p + ggplot2::geom_line(alpha = .25) +
