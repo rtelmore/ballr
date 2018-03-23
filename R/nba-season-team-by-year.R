@@ -13,16 +13,8 @@ NBASeasonTeamByYear <- function(team, season){
   url <- paste(getOption("NBA_api_base"), "/teams/", team, "/", season,
                "_games.html", sep="")
   pg <- xml2::read_html(url)
-  nba_stats <- rvest::html_table(pg, fill = T)[[1]]
-
-  if (utils::packageVersion("janitor") > "0.3.1") {
-    nba_stats <- nba_stats %>%
-      janitor::clean_names(case = "old_janitor")
-  } else {
-    nba_stats <- nba_stats %>%
-      janitor::clean_names() %>%
-      janitor::remove_empty_cols()
-  }
+  nba_stats <- rvest::html_table(pg, fill = T)[[1]] %>%
+    janitor::clean_names(case = "old_janitor")
 
   nba_stats <- nba_stats[-c(21, 42, 63, 84), ] %>%
     dplyr::mutate(g = as.numeric(.data$g),

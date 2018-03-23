@@ -13,16 +13,8 @@ NBAPlayerPerGameStats <- function(player_link) {
                       player_link,
                       sep = "")
   pg <- xml2::read_html(player_url)
-  player_stats <- rvest::html_table(pg, fill = T)[[1]]
-
-  if (utils::packageVersion("janitor") > "0.3.1") {
-    player_stats <- player_stats %>%
-      janitor::clean_names(case = "old_janitor")
-  } else {
-    player_stats <- player_stats %>%
-      janitor::clean_names() %>%
-      janitor::remove_empty_cols()
-  }
+  player_stats <- rvest::html_table(pg, fill = T)[[1]] %>%
+    janitor::clean_names(case = "old_janitor")
 
   return(player_stats)
 }

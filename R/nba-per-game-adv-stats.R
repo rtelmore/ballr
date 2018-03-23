@@ -30,16 +30,9 @@ NBAPerGameAdvStatistics <- function(season = 2018) {
 
   nba_stats <- rvest::html_table(pg, fill = T)[[1]]
 
-  if (utils::packageVersion("janitor") > "0.3.1") {
-    nba_stats <- nba_stats %>%
-      janitor::clean_names(case = "old_janitor") %>%
-      dplyr::filter(.data$player != "Player")
-  } else {
-    nba_stats <- nba_stats %>%
-      janitor::clean_names() %>%
-      janitor::remove_empty_cols() %>%
-      dplyr::filter(.data$player != "Player")
-  }
+  nba_stats <- nba_stats %>%
+    janitor::clean_names(case = "old_janitor") %>%
+    dplyr::filter(.data$player != "Player")
 
   links <- pg %>%
     rvest::html_nodes("tr.full_table") %>%
