@@ -98,24 +98,24 @@ for(i in 2:dim(players)[1]){
 Plot everything
 ```{r}
 #player_stats <- clean_names(player_stats)
-if (packageVersion("janitor") <= "0.3.1") {
-  player_stats <- dplyr::mutate(player_stats, e_fg_percent = efgpercent)
-}
-
+# if (packageVersion("janitor") <= "0.3.1") {
+#   player_stats <- dplyr::mutate(player_stats, e_fg_percent = efgpercent)
+# }
+# 
 p <- ggplot2::ggplot(data = player_stats,
-            aes(x = age, y = e_fg_percent, group = player))
+            aes(x = age, y = efgpercent, group = player))
 p + ggplot2::geom_line(alpha = .25) +
   ggplot2::geom_point(alpha = .25) +
   ggplot2::scale_y_continuous("effective field goal %age", limit = c(0, 1),
                      labels = percent) +
   ggplot2::geom_line(data = dplyr::filter(player_stats, player == "Anthony Davis"),
-            aes(x = age, y = e_fg_percent), size = 1, col = "#1f78b4") +
+            aes(x = age, y = efgpercent), size = 1, col = "#1f78b4") +
   ggplot2::geom_point(data = dplyr::filter(player_stats, player == "Anthony Davis"),
-            aes(x = age, y = e_fg_percent), size = 1, col = "#1f78b4") +
+            aes(x = age, y = efgpercent), size = 1, col = "#1f78b4") +
   ggplot2::geom_line(data = dplyr::filter(player_stats, player == "DeMarcus Cousins"),
-            aes(x = age, y = e_fg_percent), size = 1, col = "#33a02c") +
+            aes(x = age, y = efgpercent), size = 1, col = "#33a02c") +
   ggplot2::geom_point(data = dplyr::filter(player_stats, player == "DeMarcus Cousins"),
-             aes(x = age, y = e_fg_percent), size = 1, col = "#33a02c") +
+             aes(x = age, y = efgpercent), size = 1, col = "#33a02c") +
   ggplot2::theme_bw()
 
 ```
