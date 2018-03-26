@@ -1,4 +1,15 @@
-## Resubmission to address  (22 Mar 2018)
+## Resubmission to address date (26 Mar 2018)
+
+* fixed Date in DESCRIPTION
+
+## Test environments
+* local OS X install, R 3.4.3
+* ubuntu (on travis-ci), R 3.4.3
+
+## R CMD check results
+There were no ERRORs, WARNINGs, or NOTEs.
+
+## Resubmission to address janitor issues (22 Mar 2018)
 
 * addressed the janitor 1.0.0 compliance issues
 
