@@ -4,7 +4,7 @@
 \alias{NBAStandingsByDate}
 \title{NBA Standings by Date}
 \usage{
-NBAStandingsByDate(date_string = Sys.Date())
+NBAStandingsByDate(date_string = "2018-06-30")
 }
 \arguments{
 \item{date_string}{A String of the form "2015-04-01"}
@@ -13,7 +13,7 @@ NBAStandingsByDate(date_string = Sys.Date())
 An list containing the standings in the Eastern and Western Conferences
 }
 \description{
-This function the current NBA standings for the given date
+This function returns the NBA standings from the given date
 }
 \examples{
 NBAStandingsByDate("2010-01-31") # Jan 31, 2010
