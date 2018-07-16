@@ -1,8 +1,8 @@
 Package: ballr
 Type: Package
 Title: Access to Current and Historical Basketball Data
-Version: 0.2.0
-Date: 2018-03-26
+Version: 0.2.1
+Date: 2018-07-16
 Authors@R: c(
     person("Ryan", "Elmore", email = "rtelmore@gmail.com", role = c("cre", "aut")),
     person("Peter", "DeWitt", email = "dewittpe@gmail.com", role = "ctb"))
@@ -23,8 +23,7 @@ Suggests:
     knitr,
     ggplot2,
     rmarkdown,
-    scales,
-    XML
+    scales
 LazyData: TRUE
 RoxygenNote: 6.0.1
 VignetteBuilder: knitr
