@@ -1,6 +1,6 @@
 #' NBA Standings by Date
 #'
-#' This function the current NBA standings for the given date
+#' This function returns the NBA standings from the given date
 #'
 #' @param date_string A String of the form "2015-04-01"
 #' @return An list containing the standings in the Eastern and Western Conferences
@@ -8,7 +8,7 @@
 #' NBAStandingsByDate("2010-01-31") # Jan 31, 2010
 #' NBAStandingsByDate("2017-11-09") # Nov 09, 2017
 #' @export
-NBAStandingsByDate <- function(date_string = Sys.Date()){
+NBAStandingsByDate <- function(date_string = "2018-06-30"){
   date_string <- lubridate::ymd(date_string)
   y <- lubridate::year(date_string)
   m <- lubridate::month(date_string)
