@@ -1,3 +1,15 @@
+## Resubmission to address date (16 Jun 2018)
+
+* fixed Date in nba-standings-by-date.R
+
+## Test environments
+* local OS X install, R 3.5.1
+* ubuntu (on travis-ci), R 3.5.0
+* ubuntu (on travis-ci), R 3.6.0
+
+## R CMD check results
+There were no ERRORs, WARNINGs, or NOTEs.
+
 ## Resubmission to address date (26 Mar 2018)
 
 * fixed Date in DESCRIPTION
