@@ -1,3 +1,15 @@
+## Resubmission to new basketball-reference.com structure (19 Oct 2018)
+
+* fixed pulling in the wrong html table in nba-per-game-stats-per-36.R
+
+## Test environments
+* local OS X install, R 3.5.1
+* ubuntu (on travis-ci), R 3.5.1
+* ubuntu (on travis-ci), R 3.6.0
+
+## R CMD check results
+There were no ERRORs, WARNINGs, or NOTEs.
+
 ## Resubmission to address date (16 Jun 2018)
 
 * fixed Date in nba-standings-by-date.R
