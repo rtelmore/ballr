@@ -1,6 +1,7 @@
 ## Resubmission to address new table structure on BBR (31 Oct 2018)
 
 * fixed pulling in the wrong html table in nba-player-per-game-stats.R
+* added a dontrun to the advanced statistics example
 
 ## Test environments
 * local OS X install, R 3.5.1
