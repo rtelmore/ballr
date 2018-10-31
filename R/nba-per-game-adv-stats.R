@@ -9,6 +9,7 @@
 #' @return An object of class tbl_df
 #'
 #' @examples
+#' \dontrun{
 #' library(magrittr)
 #'
 #' players <- NBAPerGameAdvStatistics(season = 2018)
@@ -18,6 +19,7 @@
 #'   dplyr::filter(pos %in% c("SF")) %>%
 #'   dplyr::select(player, link) %>%
 #'   dplyr::distinct()
+#' }
 #'
 #' @export
 NBAPerGameAdvStatistics <- function(season = 2018) {

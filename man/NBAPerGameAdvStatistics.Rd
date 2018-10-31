@@ -19,6 +19,7 @@ table at:
 https://www.basketball-reference.com/leagues/NBA_2018_advanced.html
 }
 \examples{
+\dontrun{
 library(magrittr)
 
 players <- NBAPerGameAdvStatistics(season = 2018)
@@ -28,5 +29,6 @@ players \%>\%
   dplyr::filter(pos \%in\% c("SF")) \%>\%
   dplyr::select(player, link) \%>\%
   dplyr::distinct()
+}
 
 }
