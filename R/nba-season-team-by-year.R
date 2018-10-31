@@ -6,8 +6,11 @@
 #' @param season The particular season you are querying
 #' @return A team's game statistics for a particular season
 #' @examples
+#' \dontrun{
 #' NBASeasonTeamByYear("ATL", 2018)
 #' NBASeasonTeamByYear("NOP", 2018)
+#' }
+#'
 #' @export
 NBASeasonTeamByYear <- function(team, season){
   url <- paste(getOption("NBA_api_base"), "/teams/", team, "/", season,

@@ -9,6 +9,7 @@
 #' @return An object of class tbl_df
 #'
 #' @examples
+#' \dontrun{
 #' library(magrittr)
 #'
 #' players <- NBAPerGameStatisticsPer36Min(season = 2018)
@@ -18,6 +19,7 @@
 #'   dplyr::filter(mp > 20, pos %in% c("SF")) %>%
 #'   dplyr::select(player, link) %>%
 #'   dplyr::distinct()
+#' }
 #'
 #' @export
 NBAPerGameStatisticsPer36Min <- function(season = 2018) {

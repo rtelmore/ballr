@@ -5,8 +5,10 @@
 #' @param player_link A link suffix, e.g. "/players/d/davisan02.html"
 #' @return An object of class tbl_df
 #' @examples
+#' \dontrun{
 #' NBAPlayerPerGameStats("/players/d/davisan02.html") # Anthony Davis
 #' NBAPlayerPerGameStats("/players/j/jamesle01.html") # Lebron James
+#' }
 #' @export
 NBAPlayerPerGameStats <- function(player_link) {
   player_url <- paste(getOption("NBA_api_base"),

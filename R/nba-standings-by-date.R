@@ -5,8 +5,10 @@
 #' @param date_string A String of the form "2015-04-01"
 #' @return An list containing the standings in the Eastern and Western Conferences
 #' @examples
+#' \dontrun{
 #' NBAStandingsByDate("2010-01-31") # Jan 31, 2010
 #' NBAStandingsByDate("2017-11-09") # Nov 09, 2017
+#' }
 #' @export
 NBAStandingsByDate <- function(date_string = "2018-06-30"){
   date_string <- lubridate::ymd(date_string)
