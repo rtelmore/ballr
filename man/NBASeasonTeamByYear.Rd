@@ -18,6 +18,9 @@ A team's game statistics for a particular season
 This function returns a team's yearly statistics from basketball-reference.com
 }
 \examples{
+\dontrun{
 NBASeasonTeamByYear("ATL", 2018)
 NBASeasonTeamByYear("NOP", 2018)
+}
+
 }

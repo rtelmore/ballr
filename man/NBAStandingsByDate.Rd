@@ -16,6 +16,8 @@ An list containing the standings in the Eastern and Western Conferences
 This function returns the NBA standings from the given date
 }
 \examples{
+\dontrun{
 NBAStandingsByDate("2010-01-31") # Jan 31, 2010
 NBAStandingsByDate("2017-11-09") # Nov 09, 2017
+}
 }

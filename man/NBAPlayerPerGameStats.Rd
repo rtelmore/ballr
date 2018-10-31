@@ -16,6 +16,8 @@ An object of class tbl_df
 This function gets a player's career stats from basketball-reference.com
 }
 \examples{
+\dontrun{
 NBAPlayerPerGameStats("/players/d/davisan02.html") # Anthony Davis
 NBAPlayerPerGameStats("/players/j/jamesle01.html") # Lebron James
+}
 }

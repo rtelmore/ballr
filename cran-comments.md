@@ -2,6 +2,7 @@
 
 * fixed pulling in the wrong html table in nba-player-per-game-stats.R
 * added a dontrun to the advanced statistics example
+* added dontruns to all examples
 
 ## Test environments
 * local OS X install, R 3.5.1
