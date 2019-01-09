@@ -12,7 +12,7 @@ package is **baw**-ler.
 
 ## To install:
 
-```
+```r
 install.packages("devtools")
 library(devtools)
 install_github("rtelmore/ballr")
