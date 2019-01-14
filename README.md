@@ -10,9 +10,15 @@ package is **baw**-ler.
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/ballr)](http://www.r-pkg.org/pkg/ballr)
 [![DOI](https://zenodo.org/badge/45419870.svg)](https://zenodo.org/badge/latestdoi/45419870)
 
-## To install:
+## To install
 
+From CRAN:
+```r
+install.packages("ballr")
 ```
+
+The development version from GitHub:
+```r
 install.packages("devtools")
 library(devtools)
 install_github("rtelmore/ballr")
