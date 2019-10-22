@@ -1,3 +1,12 @@
+## Resubmission to address new table structure on BBR (22 Oct 2019)
+
+* fixed pulling in the wrong html table in nba-player-per-game-stats.R
+
+## Test environments
+* local OS X install, R 3.6.0
+* ubuntu (on travis-ci), R 3.6.1
+* ubuntu (on travis-ci), R dev r77324
+
 ## Resubmission to address new table structure on BBR (31 Oct 2018)
 
 * fixed pulling in the wrong html table in nba-player-per-game-stats.R
@@ -5,7 +14,7 @@
 * added dontruns to all examples
 
 ## Test environments
-* local OS X install, R 3.6.0
+* local OS X install, R 3.5.1
 * ubuntu (on travis-ci), R 3.5.1
 * ubuntu (on travis-ci), R 3.6.0
 
