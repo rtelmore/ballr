@@ -12,3 +12,4 @@
 ^.document.R$
 ^renv$
 ^renv\.lock$
+^CRAN-RELEASE$
