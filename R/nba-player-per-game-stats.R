@@ -15,7 +15,10 @@ NBAPlayerPerGameStats <- function(player_link) {
                       player_link,
                       sep = "")
   pg <- xml2::read_html(player_url)
-  player_stats <- rvest::html_table(pg, fill = T)[[1]]
+  tmp <- rvest::html_table(pg, fill = T)
+  ifelse(ncol(tmp[[1]]) == 21,
+         player_stats <- tmp[[2]],
+         player_stats <- tmp[[1]])
 
   if (utils::packageVersion("janitor") > "0.3.1") {
     player_stats <- player_stats %>%

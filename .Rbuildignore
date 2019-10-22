@@ -10,3 +10,5 @@
 ^fig/*$
 ^tmp/*$
 ^.document.R$
+^renv$
+^renv\.lock$

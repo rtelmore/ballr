@@ -5,7 +5,7 @@
 * added dontruns to all examples
 
 ## Test environments
-* local OS X install, R 3.5.1
+* local OS X install, R 3.6.0
 * ubuntu (on travis-ci), R 3.5.1
 * ubuntu (on travis-ci), R 3.6.0
 
