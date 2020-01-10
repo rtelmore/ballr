@@ -1,3 +1,15 @@
+## Resubmission to address Joel Embiid issue in vignette (10 Jan 2020)
+
+* fixed vignette build failure
+
+## Test environments
+* local OS X install, R 3.6.0
+* ubuntu (on travis-ci), R 3.6.1
+* ubuntu (on travis-ci), R dev r77324
+
+## R CMD check results
+There were no ERRORs, WARNINGs, or NOTEs.
+
 ## Resubmission to address new table structure on BBR (22 Oct 2019)
 
 * fixed pulling in the wrong html table in nba-player-per-game-stats.R

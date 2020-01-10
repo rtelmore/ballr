@@ -53,8 +53,8 @@ NBAPerGameStatistics <- function(season = 2018) {
     rvest::html_nodes("a") %>%
     rvest::html_text()
 
-  links_df <- dplyr::data_frame(player = as.character(link_names),
-                            link       = as.character(links))
+  links_df <- dplyr::tibble(player = as.character(link_names),
+                            link = as.character(links))
   links_df[] <- lapply(links_df, as.character)
   nba_stats <- dplyr::left_join(nba_stats, links_df, by = "player")
   nba_stats <- dplyr::mutate_at(nba_stats,

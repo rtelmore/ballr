@@ -29,5 +29,7 @@ NBAPlayerPerGameStats <- function(player_link) {
       janitor::remove_empty_cols()
   }
 
+  player_stats <- player_stats[!grepl("Did Not Play", player_stats$g), ]
+
   return(player_stats)
 }

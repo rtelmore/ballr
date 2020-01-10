@@ -10,7 +10,7 @@
 #' NBAStandingsByDate("2017-11-09") # Nov 09, 2017
 #' }
 #' @export
-NBAStandingsByDate <- function(date_string = "2018-06-30"){
+NBAStandingsByDate <- function(date_string = Sys.Date()){
   date_string <- lubridate::ymd(date_string)
   y <- lubridate::year(date_string)
   m <- lubridate::month(date_string)
