@@ -4,8 +4,8 @@
 
 ## Test environments
 * local OS X install, R 3.6.0
-* ubuntu (on travis-ci), R 3.6.1
-* ubuntu (on travis-ci), R dev r77324
+* ubuntu (on travis-ci), R 3.6.2
+* ubuntu (on travis-ci), R dev r77648
 
 ## R CMD check results
 There were no ERRORs, WARNINGs, or NOTEs.
