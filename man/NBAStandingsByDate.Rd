@@ -4,7 +4,7 @@
 \alias{NBAStandingsByDate}
 \title{NBA Standings by Date}
 \usage{
-NBAStandingsByDate(date_string = "2018-06-30")
+NBAStandingsByDate(date_string = Sys.Date())
 }
 \arguments{
 \item{date_string}{A String of the form "2015-04-01"}
