@@ -78,39 +78,34 @@ players <- NBAPerGameStatisticsPer36Min(season = 2019) %>%
 players
 ```
 
-Query each player in the list
+Query each player in the list and append the stats from each player 
+into a df.
 ```{r}
-player_stats <- NBAPlayerPerGameStats(players[1, 2]) %>%
-  dplyr::filter(!is.na(age)) %>%
-  dplyr::mutate(player = as.character(players[1, 1]))
-```
-
-Append the stats from each player into a df 
-```{r}
-for(i in 2:dim(players)[1]){
-  tmp <- NBAPlayerPerGameStats(players[i, 2]) %>%
-    dplyr::filter(!is.na(age)) %>%
-    dplyr::mutate(player = as.character(players[i, 1]))
-  player_stats <- dplyr::bind_rows(player_stats, tmp)
+for(i in 1:dim(players)[1]){
+  print(i)#  i <- 7
+  try({
+    tmp <- NBAPlayerPerGameStats(players[i, 2]) %>%
+      dplyr::filter(!is.na(age)) %>%
+      dplyr::mutate(player = as.character(players[i, 1]))
+    if(is.numeric(tmp$g)){
+      if(exists("player_stats")){
+        player_stats <- rbind(player_stats, tmp)
+      } else{
+        player_stats <- tmp
+      }
+    }
+  }, silent = T)
 }
 ```
 
 Plot everything
 ```{r}
 p <- ggplot2::ggplot(data = player_stats,
-            aes(x = age, y = efgpercent, group = player))
+            aes(x = age, y = efgpercent, group = player, col = player))
 p + ggplot2::geom_line(alpha = .25) +
   ggplot2::geom_point(alpha = .25) +
   ggplot2::scale_y_continuous("effective field goal %age", limit = c(0, 1),
                      labels = percent) +
-  ggplot2::geom_line(data = dplyr::filter(player_stats, player == "Anthony Davis"),
-            aes(x = age, y = efgpercent), size = 1, col = "#1f78b4") +
-  ggplot2::geom_point(data = dplyr::filter(player_stats, player == "Anthony Davis"),
-            aes(x = age, y = efgpercent), size = 1, col = "#1f78b4") +
-  ggplot2::geom_line(data = dplyr::filter(player_stats, player == "DeMarcus Cousins"),
-            aes(x = age, y = efgpercent), size = 1, col = "#33a02c") +
-  ggplot2::geom_point(data = dplyr::filter(player_stats, player == "DeMarcus Cousins"),
-             aes(x = age, y = efgpercent), size = 1, col = "#33a02c") +
   ggplot2::theme_bw()
 
 ```

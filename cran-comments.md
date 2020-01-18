@@ -1,3 +1,15 @@
+## Non-hacky solution to vignette problem (18 Jan 2020)
+
+* fixed vignette build failure
+
+## Test environments
+* local OS X install, R 3.6.0
+* ubuntu (on travis-ci), R 3.6.2
+* ubuntu (on travis-ci), R dev r77648
+
+## R CMD check results
+There were no ERRORs, WARNINGs, or NOTEs.
+
 ## Resubmission to address Joel Embiid issue in vignette (10 Jan 2020)
 
 * fixed vignette build failure
