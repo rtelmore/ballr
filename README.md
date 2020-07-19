@@ -12,6 +12,7 @@ package is **baw**-ler.
 
 ## To install
 
+(Update: It's not on CRAN as of July 2020.)
 From CRAN:
 ```r
 install.packages("ballr")
