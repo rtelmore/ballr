@@ -21,19 +21,27 @@ NBAStandingsByDate <- function(date_string = Sys.Date()){
                "&day=", d,
                "&year=", y,
                "&lg_id=NBA", sep = "")
-  r <- xml2::read_html(url)
-  east <- rvest::html_table(r, fill = T)[[1]]
-  west <- rvest::html_table(r, fill = T)[[2]]
-  if (utils::packageVersion("janitor") > "0.3.1") {
-    east <- janitor::clean_names(east, case = "old_janitor")
-    west <- janitor::clean_names(west, case = "old_janitor")
-  } else {
-    east <- east %>%
-      janitor::clean_names() %>%
-      janitor::remove_empty_cols()
-    west <- west %>%
-      janitor::clean_names() %>%
-      janitor::remove_empty_cols()
-  }
-  return(list(East = east, West = west))
+  try({
+    r <- xml2::read_html(url)
+    east <- rvest::html_table(r, fill = T)[[1]]
+    west <- rvest::html_table(r, fill = T)[[2]]
+    if (utils::packageVersion("janitor") > "0.3.1") {
+      east <- janitor::clean_names(east, case = "old_janitor")
+      west <- janitor::clean_names(west, case = "old_janitor")
+    } else {
+      east <- east %>%
+        janitor::clean_names() %>%
+        janitor::remove_empty_cols()
+      west <- west %>%
+        janitor::clean_names() %>%
+        janitor::remove_empty_cols()
+    }
+  }, silent = TRUE
+  )
+  if(exists("east")){
+    return(list(East = east, West = west))
+  } else (
+    cat(sprintf("Standings are not available on %s.", date_string))
+    )
 }
+
